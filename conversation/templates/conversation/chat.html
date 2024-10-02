@@ -1,0 +1,26 @@
+<h1>Chat with GPT</h1>
+
+<h3>Session: {{ session.name }}</h3>  <!-- Display the session name -->
+
+<div class="conversation-history">
+    {% if conversation_history %}
+        {% for message in conversation_history %}
+            <div class="{% if message.role == 'user' %}user-message{% else %}assistant-message{% endif %}">
+                <strong>{{ message.role }}:</strong> {{ message.content }}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No conversation yet.</p>
+    {% endif %}
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="send_prompt">Send</button>
+</form>
+
+<form method="POST" action="{% url 'new_session' %}">
+    {% csrf_token %}
+    <button type="submit">Start New Session</button>
+</form>
