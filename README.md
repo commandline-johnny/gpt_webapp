@@ -32,16 +32,10 @@ A Django-based web application that allows users to have dynamic conversations w
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   pip install -r requirements.txt
+   poetry install
    ```
 
-3. Install OpenAI Python client:
-
-   ```bash
-   pip install openai
-   ```
-
-4. Set up environment variables:
+3. Set up environment variables:
 
    Create a `.env` file in the root directory of your project and add your OpenAI API key:
 
@@ -49,19 +43,19 @@ A Django-based web application that allows users to have dynamic conversations w
    OPENAI_API_KEY=your-api-key-here
    ```
 
-5. Migrate the database:
+4. Migrate the database:
 
    ```bash
    python manage.py migrate
    ```
 
-6. (Optional) Create a superuser for the admin panel:
+5. (Optional) Create a superuser for the admin panel:
 
    ```bash
    python manage.py createsuperuser
    ```
 
-7. Run the development server:
+6. Run the development server:
 
    ```bash
    python manage.py runserver
@@ -74,9 +68,3 @@ A Django-based web application that allows users to have dynamic conversations w
 3. Start a conversation by entering your message.
 4. You can start a new session at any time by clicking the "Start New Session" button.
 5. You can also continue previous sessions from the "Load Session" page.
-
-## Future Enhancements
-
-- Integration with more GPT models.
-- Persistent database storage for long-term conversation history.
-- Custom fine-tuned GPT model integration (once API support is available).
